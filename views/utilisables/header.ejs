@@ -1,0 +1,158 @@
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <a href="/"><img src="/images/devPioneerslogo.jpeg" alt="DevPioneers"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Accueil</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<style>
+/* ----- HEADER GLOBAL ----- */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(116, 114, 114, 0.404);
+    backdrop-filter: blur(12px);
+}
+
+/* ----- CONTAINER ----- */
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ----- LOGO ----- */
+.logo img {
+    height: 55px;
+    transition: transform .3s ease;
+    text-align: center;
+    border-radius:15px;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* ----- NAVIGATION ----- */
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e9eaed;
+    position: relative;
+    transition: .3s ease;
+}
+
+/* Effet soulignage slide */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: #02014a; /* Orange DevPioneers */
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #02014a;
+}
+
+/* ----- HAMBURGER MENU ----- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #02014a;
+    border-radius: 2px;
+    transition: all .3s ease;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 14px 20px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        flex-direction: column;
+        background: rgb(1, 2, 51);
+        width: 250px;
+        height: calc(100vh - 75px);
+        padding: 40px 20px;
+        gap: 25px;
+        transition: right 0.3s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ----- ANIMATION HAMBURGER ----- */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+</style>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+</script>

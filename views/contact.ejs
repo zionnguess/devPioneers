@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevPioneers - Contact</title>
+  <style>
+/* ------------------------------ */
+/* RESET & GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #fefefe;
+    color: #222;
+}
+
+/* ------------------------------ */
+/* BUTTON GLOBAL */
+.btn-cta {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #ff6a00;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255,106,0,0.3);
+}
+
+.btn-cta:hover {
+    background: #e25700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255,106,0,0.4);
+}
+
+/* ------------------------------ */
+/* HERO */
+.contact-hero {
+    margin-top: 75px;
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #fff6f0 0%, #ffe6cc 100%);
+}
+
+.contact-hero h1 {
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #222;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ------------------------------ */
+/* WHAT WE DO */
+.what-we-do {
+    padding: 80px 20px;
+    background: #f9f9f9;
+}
+
+.what-we-do-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.what-we-do-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.what-we-do-image img:hover {
+    transform: scale(1.03);
+}
+
+.what-we-do-text {
+    flex: 1;
+}
+
+.what-we-do-text h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+.what-we-do-text h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #01072e;
+}
+
+.what-we-do-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.what-we-do-text .btn-cta {
+    display: inline-block;
+    margin-top: 25px;
+}
+
+/* ------------------------------ */
+/* FORM */
+.contact-form-section {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    resize: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #05013d;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(255,106,0,0.2);
+}
+
+.contact-form button {
+    background: #09003c;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #e25700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255,106,0,0.4);
+}
+
+.form-message {
+    text-align: center;
+    color: green;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ------------------------------ */
+/* CONTACT DIRECT / SOCIAL */
+aside {
+    text-align: center;
+    margin: 60px 20px;
+    padding: 40px 20px;
+    background: #fff8f0;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+aside h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+aside p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.reseaux-sociaux {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.reseaux-sociaux li img {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s ease;
+}
+
+.reseaux-sociaux li img:hover {
+    transform: scale(1.2);
+}
+
+/* ------------------------------ */
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .what-we-do-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .what-we-do-image img {
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 36px;
+    }
+    .contact-hero p {
+        font-size: 16px;
+    }
+    aside h2 {
+        font-size: 22px;
+    }
+    aside p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero h1 {
+        font-size: 28px;
+    }
+    .contact-form button {
+        width: 100%;
+    }
+    .reseaux-sociaux {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+  </style>
+</head>
+<body>
+  <%- include('utilisables/header') %>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Contactez-nous</h1>
+      <p>Vous avez un projet en tête ou une question ? Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="what-we-do">
+    <div class="container what-we-do-container">
+      <div class="what-we-do-image">
+        <img src="/images/services.png" alt="Nos Services">
+      </div>
+      <div class="what-we-do-text">
+        <h2>Ce que nous faisons</h2>
+
+        <h3>DÉVELOPPEMENT WEB</h3>
+        <p>Vous avez un design ou une idée et vous voulez qu'on le transforme en site web fonctionnel et moderne ? Contactez-nous pour discuter de votre projet.</p>
+
+        <h3>MAINTENANCE DE SITE</h3>
+        <p>Nous vous aidons à garder votre site à jour, sécurisé et performant, avec un support amical pour toute modification ou ajout de contenu.</p>
+
+        <h3>SUPPORT TECHNIQUE</h3>
+        <p>Vous rencontrez un problème technique ou avez besoin d’aide pour une tâche spécifique ? Contactez-nous et nous trouverons une solution adaptée.</p>
+
+        <a href="/contact" class="btn-cta">NOUS CONTACTER</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE -->
+  <section class="contact-form-section container">
+    <% if (message) { %>
+      <p class="form-message"><%= message %></p>
+    <% } %>
+    <form action="/contact" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <input type="text" name="subject" placeholder="Sujet" required>
+      <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
+      <button type="submit" class="btn-cta">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- CONTACT DIRECT / SOCIAL -->
+  <aside>
+    <p>ou</p>
+    <h2>Contactez-nous directement</h2>
+    <p>Par téléphone : <strong>+221 71 043 47 72</strong></p>
+    <p>Par mail : <strong>devpioneershome@gmail.com</strong></p>
+    <p>Ou via nos réseaux sociaux :</p>
+    <ul class="reseaux-sociaux">
+      <li><a href="#"><img src="/images/fb.png" alt="Facebook"></a></li>
+      <li><a href="#"><img src="/images/Twitter.png" alt="Twitter"></a></li>
+      <li><a href="#"><img src="/images/yt.png" alt="YouTube"></a></li>
+      <li><a href="#"><img src="/images/ig.png" alt="Instagram"></a></li>
+    </ul>
+  </aside>
+
+  <%- include('utilisables/footer') %>
+</body>
+</html>
