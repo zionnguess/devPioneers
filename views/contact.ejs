@@ -1,323 +1,399 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevPioneers - Contact</title>
-  <style>
-/* ------------------------------ */
-/* RESET & GLOBAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevPioneers - Contactez-nous</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-body {
-    background: #fefefe;
-    color: #222;
-}
+    <style>
+        :root {
+            --navy: #02014a;
+            --accent: #6366f1;
+            --accent-dark: #4338ca;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --text: #1e2937;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
 
-/* ------------------------------ */
-/* BUTTON GLOBAL */
-.btn-cta {
-    display: inline-block;
-    padding: 14px 32px;
-    background: #ff6a00;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255,106,0,0.3);
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.btn-cta:hover {
-    background: #e25700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255,106,0,0.4);
-}
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--gray-light);
+            color: var(--text);
+            line-height: 1.75;
+        }
 
-/* ------------------------------ */
-/* HERO */
-.contact-hero {
-    margin-top: 75px;
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #fff6f0 0%, #ffe6cc 100%);
-}
+        /* ===================== HERO ===================== */
+        .contact-hero {
+            padding: 160px 20px 130px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--navy), #4f46e5);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-.contact-hero h1 {
-    font-size: 46px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #222;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(to bottom, transparent, var(--gray-light));
+        }
 
-.contact-hero p {
-    font-size: 18px;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
+        .contact-hero h1 {
+            font-size: clamp(44px, 7.5vw, 68px);
+            font-weight: 800;
+            margin-bottom: 26px;
+            letter-spacing: -1.6px;
+        }
 
-/* ------------------------------ */
-/* WHAT WE DO */
-.what-we-do {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
+        .contact-hero p {
+            font-size: 19.8px;
+            max-width: 780px;
+            margin: 0 auto;
+            opacity: 0.94;
+        }
 
-.what-we-do-container {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: auto;
-}
+        /* ===================== WHY US ===================== */
+        .why-us {
+            padding: 120px 20px;
+            background: white;
+        }
 
-.what-we-do-image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
+        .why-us-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.what-we-do-image img:hover {
-    transform: scale(1.03);
-}
+        .why-us h2 {
+            font-size: 41px;
+            margin-bottom: 20px;
+        }
 
-.what-we-do-text {
-    flex: 1;
-}
+        .why-us p {
+            max-width: 660px;
+            margin: 0 auto 60px;
+            color: var(--text-light);
+            font-size: 16.8px;
+        }
 
-.what-we-do-text h2 {
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: #222;
-}
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 34px;
+        }
 
-.what-we-do-text h3 {
-    font-size: 22px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #01072e;
-}
+        .why-card {
+            padding: 40px 30px;
+            border-radius: 24px;
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s ease;
+        }
 
-.what-we-do-text p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.7;
-}
+        .why-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.14);
+        }
 
-.what-we-do-text .btn-cta {
-    display: inline-block;
-    margin-top: 25px;
-}
+        .why-card h3 {
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-size: 21px;
+            font-weight: 600;
+        }
 
-/* ------------------------------ */
-/* FORM */
-.contact-form-section {
-    max-width: 700px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+        /* ===================== WHAT WE DO ===================== */
+        .what-we-do {
+            padding: 120px 20px;
+            background: white;
+        }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-    resize: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
+        .what-we-do-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #05013d;
-    outline: none;
-    box-shadow: 0 4px 12px rgba(255,106,0,0.2);
-}
+        .what-we-do-image img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+        }
 
-.contact-form button {
-    background: #09003c;
-    color: #fff;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .what-we-do-text h2 {
+            font-size: 42px;
+            margin-bottom: 42px;
+            line-height: 1.15;
+        }
 
-.contact-form button:hover {
-    background: #e25700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255,106,0,0.4);
-}
+        .expertise-item {
+            margin-bottom: 48px;
+        }
 
-.form-message {
-    text-align: center;
-    color: green;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
+        .expertise-item h3 {
+            font-size: 22.5px;
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-weight: 600;
+        }
 
-/* ------------------------------ */
-/* CONTACT DIRECT / SOCIAL */
-aside {
-    text-align: center;
-    margin: 60px 20px;
-    padding: 40px 20px;
-    background: #fff8f0;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-}
+        .expertise-item p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.78;
+        }
 
-aside h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-    color: #222;
-}
+        /* ===================== FORM ===================== */
+        .contact-form-section {
+            max-width: 860px;
+            margin: -80px auto 130px;
+            padding: 60px 55px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.13);
+            position: relative;
+            z-index: 10;
+        }
 
-aside p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 12px;
-}
+        .form-message {
+            text-align: center;
+            padding: 16px 28px;
+            margin-bottom: 34px;
+            border-radius: 16px;
+            background: #ecfdf5;
+            color: #10b981;
+            font-weight: 500;
+        }
 
-.reseaux-sociaux {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 20px;
-}
+        .contact-form {
+            display: grid;
+            gap: 28px;
+        }
 
-.reseaux-sociaux li img {
-    width: 36px;
-    height: 36px;
-    transition: transform 0.3s ease;
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 20px 24px;
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            font-size: 16.2px;
+            transition: all 0.35s;
+        }
 
-.reseaux-sociaux li img:hover {
-    transform: scale(1.2);
-}
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+            outline: none;
+        }
 
-/* ------------------------------ */
-/* RESPONSIVE */
-@media (max-width: 992px) {
-    .what-we-do-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .what-we-do-image img {
-        max-width: 100%;
-        margin-bottom: 25px;
-    }
-}
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 180px;
+        }
 
-@media (max-width: 768px) {
-    .contact-hero h1 {
-        font-size: 36px;
-    }
-    .contact-hero p {
-        font-size: 16px;
-    }
-    aside h2 {
-        font-size: 22px;
-    }
-    aside p {
-        font-size: 14px;
-    }
-}
+        .contact-form button {
+            padding: 21px;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            cursor: pointer;
+            transition: all 0.42s cubic-bezier(0.23, 1, 0.32, 1);
+            margin-top: 12px;
+        }
 
-@media (max-width: 480px) {
-    .contact-hero h1 {
-        font-size: 28px;
-    }
-    .contact-form button {
-        width: 100%;
-    }
-    .reseaux-sociaux {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-  </style>
+        .contact-form button:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 48px rgba(99, 102, 241, 0.5);
+        }
+
+        /* ===================== CONTACT INFO ===================== */
+        .contact-info {
+            max-width: 1140px;
+            margin: 0 auto 140px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 36px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 46px 36px;
+            border-radius: 26px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 28px 60px rgba(99, 102, 241, 0.17);
+        }
+
+        .info-box h3 {
+            color: var(--accent);
+            margin-bottom: 18px;
+            font-size: 20.5px;
+            font-weight: 600;
+        }
+
+        .info-box p a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-box p a:hover {
+            color: var(--accent);
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 920px) {
+            .what-we-do-container {
+                grid-template-columns: 1fr;
+                gap: 75px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contact-hero { 
+                padding: 120px 20px 100px; 
+            }
+            .contact-form-section {
+                margin: -50px 16px 100px;
+                padding: 45px 32px;
+            }
+            .why-us, .what-we-do {
+                padding: 90px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <%- include('utilisables/header') %>
 
-  <!-- HERO -->
-  <section class="contact-hero">
-    <div class="container">
-      <h1>Contactez-nous</h1>
-      <p>Vous avez un projet en tête ou une question ? Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
-    </div>
-  </section>
+    <%- include('utilisables/header', { active: 'contact' }) %>
 
-  <!-- WHAT WE DO -->
-  <section class="what-we-do">
-    <div class="container what-we-do-container">
-      <div class="what-we-do-image">
-        <img src="/images/services.png" alt="Nos Services">
-      </div>
-      <div class="what-we-do-text">
-        <h2>Ce que nous faisons</h2>
+    <!-- HERO -->
+    <section class="contact-hero">
+        <h1>Contactez-nous</h1>
+        <p>Parlons de votre projet. Nous sommes prêts à transformer vos idées en une solution digitale puissante et élégante.</p>
+    </section>
 
-        <h3>DÉVELOPPEMENT WEB</h3>
-        <p>Vous avez un design ou une idée et vous voulez qu'on le transforme en site web fonctionnel et moderne ? Contactez-nous pour discuter de votre projet.</p>
+    <!-- WHY US -->
+    <section class="why-us">
+        <div class="why-us-container">
+            <h2>Pourquoi choisir DevPioneers ?</h2>
+            <p>Une équipe passionnée, des livraisons rapides et un accompagnement personnalisé à chaque étape.</p>
 
-        <h3>MAINTENANCE DE SITE</h3>
-        <p>Nous vous aidons à garder votre site à jour, sécurisé et performant, avec un support amical pour toute modification ou ajout de contenu.</p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Rapidité d'exécution</h3>
+                    <p>Des prototypes fonctionnels en quelques jours et des mises en production optimisées.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Sécurité & Fiabilité</h3>
+                    <p>Code propre, mises à jour régulières et protection avancée de vos données.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Design & Expérience Utilisateur</h3>
+                    <p>Des interfaces intuitives, modernes et conçues pour convertir vos visiteurs en clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <h3>SUPPORT TECHNIQUE</h3>
-        <p>Vous rencontrez un problème technique ou avez besoin d’aide pour une tâche spécifique ? Contactez-nous et nous trouverons une solution adaptée.</p>
+    <!-- WHAT WE DO -->
+    <section class="what-we-do">
+        <div class="what-we-do-container">
+            <div class="what-we-do-image">
+                <img src="/images/contact.jpg" alt="Nos expertises en développement web">
+            </div>
 
-        <a href="/contact" class="btn-cta">NOUS CONTACTER</a>
-      </div>
-    </div>
-  </section>
+            <div class="what-we-do-text">
+                <h2>Nos Expertises</h2>
 
-  <!-- FORMULAIRE -->
-  <section class="contact-form-section container">
-    <% if (message) { %>
-      <p class="form-message"><%= message %></p>
-    <% } %>
-    <form action="/contact" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <input type="text" name="subject" placeholder="Sujet" required>
-      <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
-      <button type="submit" class="btn-cta">Envoyer</button>
-    </form>
-  </section>
+                <div class="expertise-item">
+                    <h3>Développement Web</h3>
+                    <p>Sites vitrines, applications web et plateformes sur mesure, rapides, modernes et optimisées pour convertir vos visiteurs.</p>
+                </div>
 
-  <!-- CONTACT DIRECT / SOCIAL -->
-  <aside>
-    <p>ou</p>
-    <h2>Contactez-nous directement</h2>
-    <p>Par téléphone : <strong>+221 71 043 47 72</strong></p>
-    <p>Par mail : <strong>devpioneershome@gmail.com</strong></p>
-    <p>Ou via nos réseaux sociaux :</p>
-    <ul class="reseaux-sociaux">
-      <li><a href="#"><img src="/images/fb.png" alt="Facebook"></a></li>
-      <li><a href="#"><img src="/images/Twitter.png" alt="Twitter"></a></li>
-      <li><a href="#"><img src="/images/yt.png" alt="YouTube"></a></li>
-      <li><a href="#"><img src="/images/ig.png" alt="Instagram"></a></li>
-    </ul>
-  </aside>
+                <div class="expertise-item">
+                    <h3>Maintenance & Évolution</h3>
+                    <p>Nous assurons la sécurité, les mises à jour et l’amélioration continue de votre solution digitale.</p>
+                </div>
 
-  <%- include('utilisables/footer') %>
+                <div class="expertise-item">
+                    <h3>Support Technique</h3>
+                    <p>Un accompagnement réactif et professionnel pour résoudre rapidement tous vos besoins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="contact-form-section">
+        <% if (message) { %>
+            <p class="form-message"><%= message %></p>
+        <% } %>
+
+        <form action="/contact" method="POST" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Votre nom complet" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Votre adresse email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="subject" placeholder="Sujet de votre message" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="7" placeholder="Décrivez votre projet ou votre besoin en détail..." required></textarea>
+            </div>
+
+            <button type="submit">Envoyer le message</button>
+        </form>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="contact-info">
+        <div class="info-box">
+            <h3>Téléphone</h3>
+            <p><a href="tel:+221710434772">+221 71 043 47 72</a></p>
+        </div>
+
+        <div class="info-box">
+            <h3>Email</h3>
+            <p><a href="mailto:devpioneershome@gmail.com">devpioneershome@gmail.com</a></p>
+        </div>
+
+        <div class="info-box">
+            <h3>Horaires</h3>
+            <p>Lundi - Samedi<br>9h00 - 18h00</p>
+        </div>
+    </section>
+
+    <%- include('utilisables/footer') %>
+
 </body>
 </html>

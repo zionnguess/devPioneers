@@ -1,258 +1,1120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevPioneers - Accueil</title>
-   <style>
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevPioneers - Accueil</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #6366f1;
+  --accent-dark: #1e1b4b;
+  --bg-light: #f5f7fb;
+  --bg-dark: #0f0f13;
+  --text-dark: #1a1a2e;
+  --text-muted: #aaa;
+  --white: #ffffff;
+  --card-shadow: 0 4px 24px rgba(99,102,241,0.08);
+  --radius: 20px;
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background: #ffffff;
-    color: #222;
-    overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* ------------------------------ */
-/* HERO SECTION */
-/* ------------------------------ */
+/* =============================================
+   UTILITIES
+   ============================================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 560px;
+  margin: 0 auto 50px;
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  display: inline-block;
+  margin: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--white);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.45);
+}
+
+/* FIX: btn-outline now works on both dark and light sections */
+.btn-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--accent-dark);
+  transform: translateY(-4px);
+}
+
+.btn-outline-dark {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.btn-outline-dark:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-4px);
+}
+/* =============================================
+   HERO
+   ============================================= */
 .hero {
-    margin-top: 75px;
-    min-height: 90vh;
-    width: 100%;
-    background: url('/images/home.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 40px;
-    position: relative;
-    text-align: center;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(2px);
-    z-index: 1;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55)),
+              url('/images/home.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  color: var(--white);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    color: white;
-    animation: fadeInUp 1s ease forwards;
+  max-width: 800px;
 }
 
-.hero-content h1 {
-    font-size: 64px;
-    font-weight: 800;
-    margin-bottom: 20px;
+.hero h1 {
+  font-size: clamp(42px, 8vw, 80px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
-.hero-content p {
-    font-size: 20px;
-    line-height: 1.6;
-    margin-bottom: 35px;
-    color: #f3f3f3;
+.hero h1 span {
+  color: var(--accent);
 }
 
-/* CTA Buttons */
-.btn-cta,
-.btn-cta-outline {
-    padding: 14px 28px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all .3s ease;
-    margin: 0 10px;
+.hero p {
+  margin: 24px 0 36px;
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.btn-cta {
-    background:#02014a;;
-    color: white;
+.hero-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.btn-cta:hover {
-    background: #02014a;;
+/* =============================================
+   CLIENTS
+   ============================================= */
+.clients {
+  padding: 70px 24px;
+  background: var(--white);
+  text-align: center;
 }
 
-.btn-cta-outline {
-    border: 2px solid #fff;
-    color: white;
+.clients h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 36px;
 }
 
-.btn-cta-outline:hover {
-    background: white;
-    color: #111;
+.clients-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
 }
 
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+.clients-logos img {
+  height: 36px;
+  opacity: 0.5;
+  filter: grayscale(1);
+  transition: opacity 0.3s, filter 0.3s;
 }
 
-/* ------------------------------ */
-/* SERVICES SECTION */
-/* ------------------------------ */
+.clients-logos img:hover {
+  opacity: 0.85;
+  filter: grayscale(0);
+}
 
+/* =============================================
+   QUI SOMMES-NOUS — FIX: grid + max-width
+   ============================================= */
+.quisommesnous {
+  background: var(--white);
+  padding: 100px 24px;
+  border-top: 1px solid #f0f0f5;
+}
+
+.qsn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.qsn-text h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.qsn-text p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.qsn-text .btn {
+  margin-left: 0;
+  margin-top: 12px;
+}
+
+.qsn-image {
+  position: relative;
+}
+
+.qsn-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 24px 60px rgba(99,102,241,0.15);
+}
+
+/* =============================================
+   STATS
+   ============================================= */
+.stats {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 80px 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat {
+  padding: 32px 20px;
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius);
+  background: rgba(99,102,241,0.05);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.stat:hover {
+  border-color: var(--accent);
+  background: rgba(99,102,241,0.1);
+}
+
+.stat h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat p {
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* =============================================
+   PROCESS
+   ============================================= */
+.process {
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--bg-light);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step {
+  background: var(--white);
+  padding: 36px 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(99,102,241,0.14);
+}
+
+.step-number {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  margin: 0 auto 20px;
+}
+
+.step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* =============================================
+   SERVICES — FIX: unique images per card
+   ============================================= */
 .services {
-    padding: 100px 40px;
-    background: #fafafa;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 42px;
-    margin-bottom: 40px;
-    font-weight: 700;
-    color: #1a1a1a;
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--white);
 }
 
 .service-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-    max-width: 1200px;
-    margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .card {
-    background: white;
-    border-radius: 16px;
-    padding: 35px 25px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.06);
-    transition: all .3s ease;
-    cursor: pointer;
+  background: var(--bg-light);
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+  border: 1px solid #eee;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 18px 40px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(99,102,241,0.12);
 }
 
-.card img {
-    height: 80px;
-    margin-bottom: 20px;
+.card-img-wrap {
+  height: 180px;
+  overflow: hidden;
+  background: #e8e8f0;
+  position: relative;
 }
 
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #1a1a1a;
-    font-weight: 700;
+/* FIX: Placeholder gradient per card when image unavailable */
+.card-img-wrap.web    { background: linear-gradient(135deg, #6366f1, #818cf8); }
+.card-img-wrap.mobile { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+.card-img-wrap.ecom   { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+.card-img-wrap.custom { background: linear-gradient(135deg, #10b981, #34d399); }
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
 }
 
-.card p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
+.card:hover .card-img-wrap img {
+  transform: scale(1.05);
 }
 
-/* ------------------------------ */
-/* RESPONSIVE */
-/* ------------------------------ */
-
-/* Tablettes */
-@media (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 48px;
-    }
-    .service-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-    .hero {
-        padding: 0 30px;
-    }
+.card-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  opacity: 0.9;
 }
 
-/* Mobiles */
+.card-body {
+  padding: 24px;
+}
+
+.card-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  color: #666;
+  font-size: 14px;
+}
+
+.card-body a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
+}
+
+/* =============================================
+   VIDEO SECTION — FIX: removed position:fixed on video
+   ============================================= */
+.section-bg {
+  position: relative;
+  height: 85vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* FIX: video is position:absolute (not fixed) so it stays inside its container */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  z-index: 1;
+}
+
+.video-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 48px;
+  color: var(--white);
+}
+
+.video-content h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  letter-spacing: -0.5px;
+}
+
+.video-content h3 {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* =============================================
+   WHY US
+   ============================================= */
+.why {
+  padding: 100px 24px;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(99,102,241,0.12);
+}
+
+.why-card .icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.why-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =============================================
+   TESTIMONIALS
+   ============================================= */
+.testimonials {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: border-color 0.3s;
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent);
+}
+
+.testimonial-stars {
+  color: #facc15;
+  font-size: 18px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.testimonial-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.author-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.author-info span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* =============================================
+   CTA FINAL
+   ============================================= */
+.cta-final {
+  padding: 120px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+.cta-final::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+.cta-final h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  max-width: 720px;
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-final p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-final .btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  background: #08080d;
+  color: var(--text-muted);
+  padding: 60px 24px 40px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.footer-brand h3 span {
+  color: var(--accent);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 32px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.footer-bottom a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 38px;
-    }
-    .hero-content p {
-        font-size: 18px;
-    }
-    .service-cards {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    .hero {
-        padding: 0 20px;
-    }
-    .btn-cta, .btn-cta-outline {
-        padding: 12px 24px;
-        font-size: 14px;
-        margin: 8px 5px;
-    }
+  /* Nav */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.97);
+    flex-direction: column;
+    padding: 20px 24px;
+    border-bottom: 1px solid #eee;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links .nav-cta {
+    align-self: flex-start;
+  }
+
+  /* Sections */
+  .qsn-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .qsn-image {
+    order: -1;
+  }
+
+  .video-content {
+    padding: 36px 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-/* Très petits écrans */
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 32px;
-    }
-    .hero-content p {
-        font-size: 16px;
-    }
-    .services {
-        padding: 60px 20px;
-    }
+  .process-grid,
+  .service-cards,
+  .why-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
-
 </head>
+
 <body>
-    <%- include('utilisables/header') %>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>DevPioneers</h1>
-            <p>Nous créons des solutions digitales modernes pour booster votre présence en ligne.</p>
-            <a href="/portfolio" class="btn-cta">Voir nos projets</a>
-            <a href="/contact" class="btn-cta-outline">Nous contacter</a>
+
+<%- include('utilisables/header', { active: 'home' }) %>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Dev<span>Pioneers</span></h1>
+    <p>Nous créons des solutions digitales modernes pour développer votre business</p>
+    <div class="hero-btns">
+      <a href="/contact" class="btn btn-primary">Démarrer un projet</a>
+      <a href="/portfolio" class="btn btn-outline">Voir nos réalisations</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CLIENTS
+     ============================================= -->
+<section class="clients">
+  <h2>Ils nous font confiance</h2>
+  <div class="clients-logos">
+    <img src="/images/client1.jpg" alt="Client 1">
+    <img src="/images/client2.jpg" alt="Client 2">
+    <img src="/images/client3.jpeg" alt="Client 3">
+    <img src="/images/devPioneerslogo.jpeg" alt="Client 4">
+  </div>
+</section>
+
+<!-- =============================================
+     QUI SOMMES-NOUS
+     ============================================= -->
+<section class="quisommesnous">
+  <div class="qsn-container">
+    <div class="qsn-text">
+      <h2>Qui sommes-nous ?</h2>
+      <p>Nous sommes une agence digitale spécialisée dans la création de solutions innovantes, alliant design moderne et expertise technique.</p>
+      <p>Notre mission est de transformer vos idées en produits performants qui font grandir votre business.</p>
+      <a href="/about" class="btn btn-primary">En savoir plus</a>
+    </div>
+    <div class="qsn-image">
+      <img src="/images/team.jpg" alt="Notre équipe DevPioneers">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat"><h2 data-target="5">0</h2><p>Projets réalisés</p></div>
+    <div class="stat"><h2 data-target="5">0</h2><p>Clients satisfaits</p></div>
+    <div class="stat"><h2 data-target="5">0</h2><p>Années d'expérience</p></div>
+    <div class="stat"><h2 data-target="98" data-percent="true">0%</h2><p>Taux de satisfaction</p></div>
+  </div>
+</section>
+
+<!-- =============================================
+     PROCESS
+     ============================================= -->
+<section class="process">
+  <h2 class="section-title">Notre méthode</h2>
+  <p class="section-subtitle">Un processus éprouvé pour transformer vos idées en produits qui performent.</p>
+  <div class="process-grid">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Analyse</h3>
+      <p>Compréhension approfondie de votre besoin, de votre marché et de vos objectifs.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Design</h3>
+      <p>Création d'une interface moderne, intuitive et centrée sur l'expérience utilisateur.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Développement</h3>
+      <p>Code performant, sécurisé et maintenable avec les meilleures technologies.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Déploiement</h3>
+      <p>Mise en ligne soignée, suivi des performances et support continu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SERVICES — FIX: unique images per card
+     ============================================= -->
+<section class="services" id="services">
+  <h2 class="section-title">Nos Services</h2>
+  <p class="section-subtitle">Des solutions sur mesure pour tous vos besoins digitaux.</p>
+  <div class="service-cards">
+
+    <div class="card">
+      <div class="card-img-wrap web">
+        <!-- FIX: Each card has its own image path -->
+        <img src="/images/webdev_img.jpg" alt="Développement Web" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <h3>Développement Web</h3>
+        <p>Sites web modernes, rapides et optimisés pour le référencement.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap mobile">
+        <img src="/images/app_mobile.jpg" alt="Applications Mobiles" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <h3>Applications Mobiles</h3>
+        <p>Apps Android & iOS performantes avec une expérience native.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <!-- FIX: E-commerce now uses its own image path -->
+      <div class="card-img-wrap ecom">
+        <img src="/images/ecomerce.jpg" alt="E-commerce" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <h3>E-commerce</h3>
+        <p>Boutiques en ligne puissantes qui convertissent vos visiteurs en clients.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <!-- FIX: Logiciels now uses its own image path -->
+      <div class="card-img-wrap custom">
+        <img src="/images/logiciel.jpg" alt="Logiciels sur mesure" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <h3>Logiciels sur mesure</h3>
+        <p>Solutions entièrement adaptées à votre activité et vos processus métier.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     VIDEO — FIX: video is absolute, not fixed
+     ============================================= -->
+<div class="section-bg">
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="/images/devpioneers.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="video-content">
+    <h1>Start your journey with</h1>
+    <h3>DevPioneers</h3>
+  </div>
+</div>
+
+<!-- =============================================
+     WHY US
+     ============================================= -->
+<section class="why">
+  <h2 class="section-title">Pourquoi choisir DevPioneers ?</h2>
+  <p class="section-subtitle">Ce qui nous différencie des autres agences digitales.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>Performance</h3>
+      <p>Des solutions rapides, optimisées et fiables, pensées pour durer et évoluer avec votre business.</p>
+    </div>
+    <div class="why-card">
+      <h3>Résultats</h3>
+      <p>Nous concevons des produits orientés conversion qui génèrent de la valeur mesurable.</p>
+    </div>
+    <div class="why-card">
+      <h3>Innovation</h3>
+      <p>Design moderne et technologies avancées pour des expériences qui marquent les esprits.</p>
+    </div>
+    <div class="why-card">
+      <h3>Accompagnement</h3>
+      <p>Un partenariat de confiance avec un suivi personnalisé à chaque étape de votre projet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TESTIMONIALS — IMPROVED: multiple cards + avatars
+     ============================================= -->
+<section class="testimonials">
+  <h2 class="testimonials-title">Ce que disent nos clients</h2>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"DevPioneers a complètement transformé notre présence en ligne. Nous avons doublé nos clients en 3 mois."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">EK</div>
+        <div class="author-info">
+          <strong>Eunice keren</strong>
+          <span>CEO,k&L-Elegence</span>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Services Section -->
-    <section class="services">
-        <h2>Nos Services</h2>
-        <div class="service-cards">
-            <div class="card">
-                <img src="/images/service1.png" alt="Web">
-                <h3>Développement Web</h3>
-                <p>Création de sites web modernes et performants adaptés à vos besoins.</p>
-            </div>
-            <div class="card">
-                <img src="/images/service2.png" alt="Mobile">
-                <h3>Applications Mobiles</h3>
-                <p>Applications mobiles intuitives pour iOS et Android.</p>
-            </div>
-            <div class="card">
-                <img src="/images/service3.png" alt="Branding">
-                <h3>Branding & Design</h3>
-                <p>Design d'identité visuelle et branding pour renforcer votre image.</p>
-            </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"Équipe professionnelle, délais respectés et résultat au-delà de nos attentes. Je recommande vivement."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">NG</div>
+        <div class="author-info">
+          <strong>Nicolas Gestin</strong>
+          <span>Directrice, Acrobranch</span>
         </div>
-    </section>
+      </div>
+    </div>
 
-   <%- include('utilisables/footer') %>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"Notre application mobile a reçu des retours excellents. L'UX est intuitive et le code est solide."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MA</div>
+        <div class="author-info">
+          <strong>Marou Aledji</strong>
+          <span>Fondateur, BHM dustribution</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     CTA FINAL
+     ============================================= -->
+<section class="cta-final">
+  <h2>Transformons votre idée en succès digital </h2>
+  <p>Parlez-nous de votre projet dès aujourd'hui — consultation gratuite</p>
+  <a href="/contact" class="btn btn-outline">Lancer mon projet</a>
+  <a href="/portfolio" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;">Voir nos travaux</a>
+</section>
+
+<%- include('utilisables/footer') %>
+<script>
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stats h2');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const duration = 2000; // durée totale en ms
+        const stepTime = 20;
+        const increment = target / (duration / stepTime);
+
+        const updateCounter = () => {
+            count += increment;
+            if(count >= target) {
+                counter.innerText = counter.getAttribute('data-target') + (counter.dataset.percent === 'true' ? '%' : '');
+            } else {
+                counter.innerText = Math.ceil(count) + (counter.dataset.percent === 'true' ? '%' : '');
+                setTimeout(updateCounter, stepTime);
+            }
+        };
+        updateCounter();
+    });
+}
+
+function checkStats() {
+    const statsSection = document.querySelector('.stats');
+    if(statsSection.getBoundingClientRect().top < window.innerHeight - 50) { // 50px marge
+        animateCounters();
+        window.removeEventListener('scroll', checkStats);
+    }
+}
+
+window.addEventListener('scroll', checkStats);
+window.addEventListener('load', checkStats);
+</script>
+
 </body>
 </html>

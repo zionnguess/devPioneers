@@ -1,158 +1,207 @@
-<header>
-    <div class="container header-container">
-        <div class="logo">
-            <a href="/"><img src="/images/devPioneerslogo.jpeg" alt="DevPioneers"></a>
-        </div>
-        <nav class="nav-links">
-            <a href="/">Accueil</a>
-            <a href="/portfolio">Portfolio</a>
-            <a href="/contact">Contact</a>
-        </nav>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+<!-- =============================================
+     HEADER - VERSION NETTOYÉE
+     ============================================= -->
+<header class="header" id="header">
+  <div class="header-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <a href="/" aria-label="Retour à l'accueil - DevPioneers">
+        <img src="/images/logo.png" alt="Logo DevPioneers" onerror="this.style.display='none'">
+        <span class="logo-text">Dev<span>Pioneers</span></span>
+      </a>
     </div>
+
+    <!-- NAVIGATION DESKTOP -->
+    <nav class="nav-links" id="nav" role="navigation" aria-label="Navigation principale">
+      <a href="/"          class="<%= active === 'home'      ? 'active' : '' %>">Accueil</a>
+      <a href="/#services">Services</a>
+      <a href="/portfolio" class="<%= active === 'portfolio' ? 'active' : '' %>">Réalisations</a>
+      <a href="/contact"   class="<%= active === 'contact'   ? 'active' : '' %>">Contact</a>
+    </nav>
+
+    <!-- CTA DESKTOP -->
+    <div class="header-right">
+      <a href="/contact" class="btn-header" aria-label="Démarrer un projet">
+        Démarrer
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
 </header>
 
 <style>
-/* ----- HEADER GLOBAL ----- */
-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background: rgba(116, 114, 114, 0.404);
-    backdrop-filter: blur(12px);
+:root {
+  --navy:        rgba(18,16,62,0.92);
+  --navy-deep:   rgba(11,9,46,0.98);
+  --accent:      #6366f1;
+  --accent-soft: rgba(99,102,241,0.25);
+  --accent-glow: rgba(99,102,241,0.55);
+  --white:       #ffffff;
+  --white-75:    rgba(255,255,255,0.75);
+  --white-10:    rgba(255,255,255,0.10);
+  --radius-pill: 9999px;
+  --transition:  0.32s cubic-bezier(0.23,1,0.32,1);
+  --transition-fast: 0.22s ease;
 }
 
-/* ----- CONTAINER ----- */
+/* ===================== HEADER ===================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  animation: slideDown 0.7s cubic-bezier(0.23,1,0.32,1) both;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .header-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 18px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1240px;
+  margin: 14px auto;
+  padding: 0 24px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--navy);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 0 rgba(255,255,255,0.06) inset,
+              0 10px 45px rgba(0,0,0,0.35);
+  transition: background var(--transition), box-shadow var(--transition);
 }
 
-/* ----- LOGO ----- */
+.header.scrolled .header-container {
+  background: var(--navy-deep);
+  box-shadow: 0 2px 0 rgba(255,255,255,0.05) inset,
+              0 16px 55px rgba(0,0,0,0.5);
+}
+
+/* ===================== LOGO ===================== */
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 .logo img {
-    height: 55px;
-    transition: transform .3s ease;
-    text-align: center;
-    border-radius:15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all var(--transition);
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+.logo a:hover img {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
 
-/* ----- NAVIGATION ----- */
+.logo-text {
+  font-size: 17.8px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--white);
+}
+
+.logo-text span { color: #a5b4fc; }
+
+/* ===================== NAVIGATION ===================== */
 .nav-links {
-    display: flex;
-    gap: 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: #e9eaed;
-    position: relative;
-    transition: .3s ease;
+  color: var(--white-75);
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  position: relative;
 }
 
-/* Effet soulignage slide */
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    height: 2px;
-    width: 0%;
-    background: #02014a; /* Orange DevPioneers */
-    transition: width .3s ease;
+.nav-links a:hover { background: rgba(255,255,255,0.10); color: var(--white); }
+.nav-links a.active { background: var(--accent-soft); color: var(--white); }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #a5b4fc;
+  border-radius: 50%;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+/* ===================== CTA DESKTOP ===================== */
+.header-right { display: flex; align-items: center; gap: 12px; }
+
+.btn-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  color: white;
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(99,102,241,0.45),
+              inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-links a:hover {
-    color: #02014a;
+.btn-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.65s ease;
 }
 
-/* ----- HAMBURGER MENU ----- */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    
-}
+.btn-header:hover::before { left: 180%; }
+.btn-header:hover { transform: translateY(-3px); box-shadow: 0 14px 35px rgba(99,102,241,0.6); }
+.btn-header svg { width: 15px; height: 15px; transition: transform var(--transition); }
+.btn-header:hover svg { transform: translateX(4px); }
 
-.hamburger span {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background: #02014a;
-    border-radius: 2px;
-    transition: all .3s ease;
-}
-
-/* ----- RESPONSIVE ----- */
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
-    .header-container {
-        padding: 14px 20px;
-    }
-
-    .logo img {
-        height: 45px;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 75px;
-        right: -100%;
-        flex-direction: column;
-        background: rgb(1, 2, 51);
-        width: 250px;
-        height: calc(100vh - 75px);
-        padding: 40px 20px;
-        gap: 25px;
-        transition: right 0.3s ease;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-/* ----- ANIMATION HAMBURGER ----- */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+  .nav-links { display: none; }
 }
 </style>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('header');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+  // Effet scroll
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
 });
 </script>
