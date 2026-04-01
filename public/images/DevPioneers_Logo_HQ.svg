@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0a1a3a" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect x="10" y="10" width="480" height="480" rx="64" ry="64"
+        fill="#1D3A6E"
+        filter="url(#shadow)"/>
+
+  <rect x="10" y="10" width="480" height="480" rx="64" ry="64"
+        fill="none"
+        stroke="#3056a0"
+        stroke-width="2"
+        opacity="0.3"/>
+
+  <polygon
+    points="120,250  250,40  380,250  250,460"
+    fill="#F2EBD9"
+    transform="rotate(45, 250, 250) translate(250, 250) scale(1.06) translate(-250, -250)"/>
+
+</svg>

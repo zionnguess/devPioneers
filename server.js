@@ -37,8 +37,8 @@ const projets = [
     { title: "Site Accrobranche", description: "Parc d'aventure.", url: "https://www.acrobranch.sn/" },
     { title: "K&L-elegance", description: "Elegance pour tous.", url: "https://k-l-elegance.myshopify.com/" },
     { title: "Nike", description: "Sport brending.", url: "https://www.nike.com/fr/" },
-    { title: "PSG", description: "Paris Saint Germain.", url: "https://www.psg.fr/en" },
-    { title: "DevPioneers", description: "Notre agence.", url: "http://localhost:3001/" },
+    { title: "PSG", description: "Paris Saint Germain.", url: `https://www.psg.fr/en` },
+    { title: "DevPioneers", description: "Notre agence.", url: `http://localhost:&{PORT}/` },
 ];
 
 // ---------------- ROUTES ----------------
