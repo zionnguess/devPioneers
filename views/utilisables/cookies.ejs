@@ -1,0 +1,143 @@
+<style>
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 90%;
+  max-width: 900px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.cookie-banner.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* LOGO + TEXTE */
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.cookie-content img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.cookie-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.cookie-text a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+/* BOUTONS */
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#accept-cookies {
+  background: #22c55e;
+  color: white;
+}
+
+#accept-cookies:hover {
+  background: #16a34a;
+}
+
+#refuse-cookies {
+  background: #ef4444;
+  color: white;
+}
+
+#refuse-cookies:hover {
+  background: #dc2626;
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cookie-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+</style>
+
+<div id="cookie-banner" class="cookie-banner">
+  
+  <div class="cookie-content">
+    <!-- LOGO -->
+    <img src="/images/logo.png" alt="DevPioneers">
+
+    <div class="cookie-text">
+      Nous utilisons des cookies pour améliorer votre expérience sur <strong>DevPioneers</strong>.
+    </div>
+  </div>
+
+  <div class="cookie-actions">
+    <button id="accept-cookies">Accepter</button>
+    <button id="refuse-cookies">Refuser</button>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const refuseBtn = document.getElementById("refuse-cookies");
+
+  if (!localStorage.getItem("cookiesChoice")) {
+    setTimeout(() => {
+      banner.classList.add("show");
+    }, 500);
+  }
+
+  acceptBtn.onclick = () => {
+    localStorage.setItem("cookiesChoice", "accepted");
+    banner.classList.remove("show");
+  };
+
+  refuseBtn.onclick = () => {
+    localStorage.setItem("cookiesChoice", "refused");
+    banner.classList.remove("show");
+  };
+});
+</script>

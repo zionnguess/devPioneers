@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DevPioneers - Accueil</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+<link rel="icon" type="image/png" href="/images/logo.png">
 <style>
 /* =============================================
    RESET & BASE
@@ -17,14 +17,15 @@
 }
 
 :root {
-  --accent: #6366f1;
-  --accent-dark: #1e1b4b;
-  --bg-light: #f5f7fb;
-  --bg-dark: #0f0f13;
-  --text-dark: #1a1a2e;
-  --text-muted: #aaa;
+  /* === PALETTE OFFICIELLE DEVPIONEERS === */
+  --accent: #1D3A6E;        /* Bleu marine (remplace #6366f1) */
+  --accent-dark: #0A1A3A;   /* Bleu nuit profond (remplace #1e1b4b) */
+  --bg-light: #F7F4EE;      /* Crème très doux (remplace #f5f7fb) */
+  --bg-dark: #0A1A3A;       /* Bleu nuit (remplace #0f0f13) */
+  --text-dark: #0F1E3C;     /* Bleu très foncé (remplace #1a1a2e) */
+  --text-muted: #8A99B5;    /* Bleu grisé (remplace #aaa) */
   --white: #ffffff;
-  --card-shadow: 0 4px 24px rgba(99,102,241,0.08);
+  --card-shadow: 0 4px 24px rgba(29,58,110,0.08); /* Ombre bleue marine */
   --radius: 20px;
   --max-width: 1200px;
 }
@@ -78,16 +79,15 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--white);
-  box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+  color: #F2EBD9;
+  box-shadow: 0 8px 24px rgba(29,58,110,0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(99,102,241,0.45);
+  box-shadow: 0 12px 32px rgba(29,58,110,0.45);
 }
 
-/* FIX: btn-outline now works on both dark and light sections */
 .btn-outline {
   border: 2px solid var(--white);
   color: var(--white);
@@ -111,13 +111,14 @@ body {
   color: var(--white);
   transform: translateY(-4px);
 }
+
 /* =============================================
    HERO
    ============================================= */
 .hero {
   min-height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55)),
-              url('/images/home.jpg') center/cover no-repeat;
+              url('/images/home.webp') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,7 +139,7 @@ body {
 }
 
 .hero h1 span {
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
 }
 
 .hero p {
@@ -196,7 +197,7 @@ body {
 }
 
 /* =============================================
-   QUI SOMMES-NOUS — FIX: grid + max-width
+   QUI SOMMES-NOUS
    ============================================= */
 .quisommesnous {
   background: var(--white);
@@ -239,7 +240,7 @@ body {
   border-radius: var(--radius);
   object-fit: cover;
   display: block;
-  box-shadow: 0 24px 60px rgba(99,102,241,0.15);
+  box-shadow: 0 24px 60px rgba(29,58,110,0.15);
 }
 
 /* =============================================
@@ -262,21 +263,21 @@ body {
 
 .stat {
   padding: 32px 20px;
-  border: 1px solid rgba(99,102,241,0.2);
+  border: 1px solid rgba(242,235,217,0.2); /* Crème translucide */
   border-radius: var(--radius);
-  background: rgba(99,102,241,0.05);
+  background: rgba(242,235,217,0.05);
   transition: border-color 0.3s, background 0.3s;
 }
 
 .stat:hover {
-  border-color: var(--accent);
-  background: rgba(99,102,241,0.1);
+  border-color: #F2EBD9;
+  background: rgba(242,235,217,0.1);
 }
 
 .stat h2 {
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 800;
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
   line-height: 1;
 }
 
@@ -316,14 +317,14 @@ body {
 
 .step:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 36px rgba(99,102,241,0.14);
+  box-shadow: 0 12px 36px rgba(29,58,110,0.14);
 }
 
 .step-number {
   width: 44px;
   height: 44px;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--white);
+  color: #F2EBD9;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -345,7 +346,7 @@ body {
 }
 
 /* =============================================
-   SERVICES — FIX: unique images per card
+   SERVICES
    ============================================= */
 .services {
   padding: 100px 24px;
@@ -373,7 +374,7 @@ body {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(99,102,241,0.12);
+  box-shadow: 0 20px 48px rgba(29,58,110,0.12);
 }
 
 .card-img-wrap {
@@ -383,11 +384,11 @@ body {
   position: relative;
 }
 
-/* FIX: Placeholder gradient per card when image unavailable */
-.card-img-wrap.web    { background: linear-gradient(135deg, #6366f1, #818cf8); }
-.card-img-wrap.mobile { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
-.card-img-wrap.ecom   { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-.card-img-wrap.custom { background: linear-gradient(135deg, #10b981, #34d399); }
+/* Palette DevPioneers pour les cards */
+.card-img-wrap.web    { background: linear-gradient(135deg, #1D3A6E, #3056A0); }
+.card-img-wrap.mobile { background: linear-gradient(135deg, #152D57, #1D3A6E); }
+.card-img-wrap.ecom   { background: linear-gradient(135deg, #0A1A3A, #1D3A6E); }
+.card-img-wrap.custom { background: linear-gradient(135deg, #3056A0, #152D57); }
 
 .card-img-wrap img {
   width: 100%;
@@ -428,7 +429,7 @@ body {
 .card-body a {
   display: inline-block;
   margin-top: 14px;
-  color: var(--accent);
+  color: var(--accent); /* Bleu marine */
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -440,7 +441,7 @@ body {
 }
 
 /* =============================================
-   VIDEO SECTION — FIX: removed position:fixed on video
+   VIDEO SECTION
    ============================================= */
 .section-bg {
   position: relative;
@@ -450,7 +451,6 @@ body {
   align-items: flex-end;
 }
 
-/* FIX: video is position:absolute (not fixed) so it stays inside its container */
 .bg-video {
   position: absolute;
   top: 50%;
@@ -487,7 +487,7 @@ body {
 .video-content h3 {
   font-size: clamp(32px, 5vw, 60px);
   font-weight: 800;
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
   line-height: 1;
 }
 
@@ -521,7 +521,7 @@ body {
 
 .why-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(99,102,241,0.12);
+  box-shadow: 0 16px 40px rgba(29,58,110,0.12);
 }
 
 .why-card .icon {
@@ -568,15 +568,15 @@ body {
 }
 
 .testimonial-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(99,102,241,0.2);
+  background: rgba(242,235,217,0.05);
+  border: 1px solid rgba(242,235,217,0.15); /* Crème translucide */
   border-radius: var(--radius);
   padding: 32px;
   transition: border-color 0.3s;
 }
 
 .testimonial-card:hover {
-  border-color: var(--accent);
+  border-color: #F2EBD9; /* Crème losange */
 }
 
 .testimonial-stars {
@@ -610,7 +610,7 @@ body {
   justify-content: center;
   font-weight: 700;
   font-size: 16px;
-  color: var(--white);
+  color: #F2EBD9;
   flex-shrink: 0;
 }
 
@@ -709,7 +709,7 @@ body {
 }
 
 .footer-brand h3 span {
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
 }
 
 .footer-brand p {
@@ -743,7 +743,7 @@ body {
 }
 
 .footer-col ul li a:hover {
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
 }
 
 .footer-bottom {
@@ -758,7 +758,7 @@ body {
 }
 
 .footer-bottom a {
-  color: var(--accent);
+  color: #F2EBD9; /* Crème losange */
   text-decoration: none;
 }
 
@@ -776,7 +776,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Nav */
   .nav-toggle {
     display: flex;
   }
@@ -803,7 +802,6 @@ body {
     align-self: flex-start;
   }
 
-  /* Sections */
   .qsn-container {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -848,6 +846,7 @@ body {
 
 
 <%- include('utilisables/header', { active: 'home' }) %>
+<%- include('utilisables/cookies') %>
 
 <section class="hero">
   <div class="hero-content">
@@ -869,7 +868,7 @@ body {
     <img src="/images/client1.jpg" alt="Client 1">
     <img src="/images/client2.jpg" alt="Client 2">
     <img src="/images/client3.jpeg" alt="Client 3">
-    <img src="/images/devPioneerslogo.jpeg" alt="Client 4">
+    <img src="/images/logo.png" alt="Client 4">
   </div>
 </section>
 
@@ -940,7 +939,6 @@ body {
 
     <div class="card">
       <div class="card-img-wrap web">
-        <!-- FIX: Each card has its own image path -->
         <img src="/images/webdev_img.jpg" alt="Développement Web" onerror="this.style.display='none'">
       </div>
       <div class="card-body">
@@ -960,7 +958,6 @@ body {
     </div>
 
     <div class="card">
-      <!-- FIX: E-commerce now uses its own image path -->
       <div class="card-img-wrap ecom">
         <img src="/images/ecomerce.jpg" alt="E-commerce" onerror="this.style.display='none'">
       </div>
@@ -971,7 +968,6 @@ body {
     </div>
 
     <div class="card">
-      <!-- FIX: Logiciels now uses its own image path -->
       <div class="card-img-wrap custom">
         <img src="/images/logiciel.jpg" alt="Logiciels sur mesure" onerror="this.style.display='none'">
       </div>
@@ -1087,7 +1083,7 @@ body {
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let count = 0;
-        const duration = 2000; // durée totale en ms
+        const duration = 2000;
         const stepTime = 20;
         const increment = target / (duration / stepTime);
 
@@ -1106,7 +1102,7 @@ body {
 
 function checkStats() {
     const statsSection = document.querySelector('.stats');
-    if(statsSection.getBoundingClientRect().top < window.innerHeight - 50) { // 50px marge
+    if(statsSection.getBoundingClientRect().top < window.innerHeight - 50) {
         animateCounters();
         window.removeEventListener('scroll', checkStats);
     }
